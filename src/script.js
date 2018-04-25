@@ -1,4 +1,3 @@
-
 // Globals ---------------------------------------------------------------------
 
 var base_url = 'http://192.168.0.1/';
@@ -86,7 +85,7 @@ var scan = function(){
 
   document.getElementById('connect-div').style.display = 'none';
   document.getElementById('networks-div').style.display = 'none';
-  
+
   getRequest(base_url+'scan-ap', scan_callback);
 
 };
@@ -97,7 +96,7 @@ var scan_callback = {
     console.log('I found:');
     var networks_div = document.getElementById('networks-div');
     networks_div.innerHTML = ''; //start by clearing html
-    
+
     if(network_list.length > 0){
       for(var i=0; i < network_list.length; i++){
         ssid = network_list[i]['ssid'];
@@ -229,7 +228,7 @@ var copy = function() {
 var toggleShow = function(){
   var passwordInput = document.getElementById('password');
   inputType = passwordInput.type;
-  
+
   if(inputType === 'password'){
     showButton.innerHTML = 'Hide';
     passwordInput.type = 'text';
@@ -314,8 +313,22 @@ function getParameterByName(name, url) {
 }
 
 // Executed immediately on load -----------------------------------------------
+window.getParameterByName = getParameterByName;
 
 var claim_code = getParameterByName('claim_code'); // read the claim code from QS
+var return_url = getParameterByName('return_url'); // read the return url from QS
+var initialDiv = document.querySelector('#initial-div');
+var returnLink = document.createElement('a');
+
+console.log('yo');
+console.log(return_url);
+if (return_url) {
+  // att.value = return_url;
+  returnLink.setAttribute('href', return_url);
+  returnLink.innerHTML = 'Return to previous page';
+  document.querySelector('body').insertBefore(returnLink, initialDiv);
+}
+
 
 // Attach events
 if (scanButton.addEventListener) {  // For all major browsers
