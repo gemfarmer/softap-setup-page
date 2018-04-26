@@ -41,7 +41,7 @@ var public_key_callback = {
     console.log(error);
     window.alert('There was a problem fetching important information from your device. Please verify your connection to the device and try again.');
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -54,7 +54,7 @@ var claim_code_callback = {
     console.log(error);
     window.alert('There was a problem writing important information to your device. Please verify your connection to the device and try again.');
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -74,7 +74,7 @@ var device_id_callback = {
   },
   regardless: function() {
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -86,7 +86,7 @@ var scan = function(){
 
   document.getElementById('connect-div').style.display = 'none';
   document.getElementById('networks-div').style.display = 'none';
-  
+
   getRequest(base_url+'scan-ap', scan_callback);
 
 };
@@ -97,7 +97,7 @@ var scan_callback = {
     console.log('I found:');
     var networks_div = document.getElementById('networks-div');
     networks_div.innerHTML = ''; //start by clearing html
-    
+
     if(network_list.length > 0){
       for(var i=0; i < network_list.length; i++){
         ssid = network_list[i]['ssid'];
@@ -229,7 +229,7 @@ var copy = function() {
 var toggleShow = function(){
   var passwordInput = document.getElementById('password');
   inputType = passwordInput.type;
-  
+
   if(inputType === 'password'){
     showButton.innerHTML = 'Hide';
     passwordInput.type = 'text';
@@ -305,12 +305,12 @@ function getParameterByName(name, url) {
     if (!url) {
       url = window.location.href;
     }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
-    return decodeURIComponent(results[2]/* .replace(/\+/g, " ")*/); // "+" is important in CC
+    return decodeURIComponent(results[2]/* .replace(/\+/g, ' ')*/); // '+' is important in CC
 }
 
 // Executed immediately on load -----------------------------------------------
