@@ -40,7 +40,7 @@ var public_key_callback = {
     console.log(error);
     window.alert('There was a problem fetching important information from your device. Please verify your connection to the device and try again.');
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -53,7 +53,7 @@ var claim_code_callback = {
     console.log(error);
     window.alert('There was a problem writing important information to your device. Please verify your connection to the device and try again.');
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -73,7 +73,7 @@ var device_id_callback = {
   },
   regardless: function() {
     enableButtons();
-    initialButton.innerHTML = "Retry";
+    initialButton.innerHTML = 'Retry';
   }
 };
 
@@ -304,12 +304,12 @@ function getParameterByName(name, url) {
     if (!url) {
       url = window.location.href;
     }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
-    return decodeURIComponent(results[2]/* .replace(/\+/g, " ")*/); // "+" is important in CC
+    return decodeURIComponent(results[2]/* .replace(/\+/g, ' ')*/); // '+' is important in CC
 }
 
 // Executed immediately on load -----------------------------------------------
