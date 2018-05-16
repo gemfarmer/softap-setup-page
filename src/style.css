@@ -2,14 +2,14 @@
 html {
   height: 100%;
   margin: auto;
-  background-color: white;
+  background-color: #1e1e1e;
 }
 
 body {
   box-sizing: border-box;
   min-height: 100%;
   padding: 20px;
-  background-color: rgb(26,171,224);
+  background-color: #373737;
 	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 	font-weight: normal;
 	color: white;
@@ -17,10 +17,10 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
-  max-width: 400px;
+  max-width: 50vw;
   text-align: center;
-  border: 1px solid rgb(110,110,112);
-  border-radius: 4px;
+  /*border: 1px solid rgb(110,110,112);*/
+  /*border-radius: 4px;*/
 }
 
 div {
@@ -41,13 +41,30 @@ li {
 }
 
 button {
-  border-color: rgb(28,117,190);
-  background-color: rgb(28,117,190);
-  color: white;
-  border-radius: 5px;
-  height: 30px;
-  font-size: 15px;
-  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+
+  text-decoration: none;
+  color: #fff;
+  background: #58B0E3;
+
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FAA61A;
+  color: #373737;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 button.input-helper {

@@ -347,7 +347,9 @@ if (scanButton.addEventListener) {  // For all major browsers
 
 // Set initial view depending on whether hosted externally or on device
 if (window.location.hostname === '192.168.0.1') {
-  document.getElementById('device-id-div').style.display = 'block';
+  // document.getElementById('device-id-div').style.display = 'block';
+  // Consider having additional page that users can go to see their devices
+  document.getElementById('initial-div').style.display = 'block';
 } else {
   document.getElementById('initial-div').style.display = 'block';
 }
