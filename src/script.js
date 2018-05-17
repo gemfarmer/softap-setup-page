@@ -62,7 +62,8 @@ var device_id_callback = {
     var id = resp['id'];
     deviceID.value = id;
     document.getElementById('initial-div').style.display = 'none';
-    document.getElementById('device-id-div').style.display = 'block';
+    // document.getElementById('device-id-div').style.display = 'block';
+    document.getElementById('device-id-div').style.display = 'none';
     document.getElementById('scan-div').style.display = 'block';
   },
   error: function(error, resp){
@@ -168,6 +169,8 @@ var connect_callback = {
   success: function(resp){
     console.log('Attempting to connect to the cloud.');
     //Now connect to the WiFi
+    document.getElementById('return-div').style.display = 'block';
+
     connectButton.innerHTML = 'Attempting to connect...';
     window.alert('Your device should now start flashing green and attempt to connect to the cloud, this usually takes less than 20 seconds. Once connected, your device will slowly blink light blue. \n\n\nIf this process fails because you entered the wrong password, the device will flash green indefinitely. If that happens, simply reload this page and try again.');
   },
@@ -326,7 +329,10 @@ if (return_url) {
   // att.value = return_url;
   returnLink.setAttribute('href', return_url);
   returnLink.innerHTML = 'Return to previous page';
+  document.querySelector('#return-button').setAttribute('href', return_url);
   document.querySelector('body').insertBefore(returnLink, initialDiv);
+} else {
+  document.querySelector('#return-button').setAttribute('href', 'http://localhost:3000/devices');
 }
 
 

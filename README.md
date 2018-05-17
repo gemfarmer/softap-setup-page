@@ -8,7 +8,7 @@
 
 This repository gives you the tools to *build* a SoftAP page for the Photon (i.e. setup up the wifi with only a browser, no app required). It shares the build tools I put together in hopes that others will improve what I've done. Which shouldn't be hard... they are very simple.
 
-The basic idea is to edit the style and wording of the html / js, then either: 
+The basic idea is to edit the style and wording of the html / js, then either:
 
  - Serve the SoftAP pages from static file server you control.
 
@@ -20,7 +20,7 @@ AND/OR
 
 1) The browser friendly RSA tools you need to encrypt your WiFi password. (Thank you [Tom Wu](http://www-cs-students.stanford.edu/~tjw/jsbn/) !)
 2) A basic html and javascript file that takes the user through the connection process. (And has slightly different instructions when serving externally vs. from the Photon.)
-3) A simple python script to serve these files locally as you make changes. 
+3) A simple python script to serve these files locally as you make changes.
 4) A compression tool that takes your source code and turns it into a bunch of C++ character arrays for easy injection into the firmware.
 
 
@@ -28,23 +28,24 @@ AND/OR
 
 ### Getting Started
 You'll need:
-
-- Python 2.7, pip. 
+- virtualenv
+- Python 2.7, pip.
 - A modern browser (I'm on chrome v53),
-- A Photon running firmaware 0.5.0 or above.
+- A Photon running firmware 0.5.0 or above.
 - You should probably also read the [SoftAP section](https://docs.particle.io/reference/firmware/photon/#softap-http-pages) of Particle's firmware reference.
 
 Then install everything on your machine with:
 
-	git clone https://github.com/mebrunet/softap-setup-page
-	cd softap-setup-page
-	pip install -r requirements.txt
+1. `git clone https://github.com/mebrunet/softap-setup-page`
+2. `cd softap-setup-page`
+3. `virtualenv ENV`
+4. `pip install -r requirements.txt`
 
 ### Serving SoftAP pages externally (eg. from an amazon S3 bucket)
 The idea here is to:
 1) Point your client to a web url where your SoftAP setup page is hosted.
 2) Let their browser download everything (scripts... etc.)
-3) Have them follow the instructions on that page (temporarily loosing internet connection in order to connect to the Photon's hotspot) and pass the local WiFi credentials to the Photon so it can get online.  
+3) Have them follow the instructions on that page (temporarily loosing internet connection in order to connect to the Photon's hotspot) and pass the local WiFi credentials to the Photon so it can get online.
 
 Running:
 
@@ -62,11 +63,11 @@ to minify and mangle your pages into something you can embed in the firmware.
 A more detailed explaination + examples coming soon!
 
 ### Setting the Claim Code
-If you want to set the claim code on the device, simply navigate to the page with query parameter `claim_code` set. For example hitting 
+If you want to set the claim code on the device, simply navigate to the page with query parameter `claim_code` set. For example hitting
 
 `http://domain_where_softap_pages_served?claim_code=abcd1234`
 
-Will set the claim code to `abcd1234` as you go through the setup process. 
+Will set the claim code to `abcd1234` as you go through the setup process.
 
 ## Notes
 - If you renamed or added files you'll need to change the configuration settings. For now this is done by editing `compress.py` directly. It's pretty self explanatory, but feel free to open an issue if you have questions.
@@ -93,3 +94,9 @@ If you want to toy with the HTTP API from your browser, a great tool is [Postman
 ### Credit
 Again, thank you [Tom Wu](http://www-cs-students.stanford.edu/~tjw/jsbn/)! for the great RSA libraries.
 Wifi Icon (favicon) courtesy of [iconarchive.com](http://www.iconarchive.com/tag/wifi)
+
+### Sprowt Tips 'n Tricks
+
+After running `python compress.py`, transfer (copy > paste) the contents of `/build/softap_pages.h` to the c++ app. Paste to `/src/compiled_softap_http.h`
+
+Todo: Write script to do this, or extend the current compress.py

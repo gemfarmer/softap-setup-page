@@ -40,7 +40,8 @@ li {
   padding: 10px;
 }
 
-button {
+button,
+.btn {
   border: none;
   border-radius: 2px;
   display: inline-block;
@@ -61,20 +62,23 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+.btn:hover {
   background-color: #FAA61A;
   color: #373737;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
-button.input-helper {
+button.input-helper,
+.btn.input-helper {
   background-color: rgb(190,190,190);
   border-color: rgb(190,190,190);
   color: rgb(110,110,112);
   margin-left: 3px;
 }
 
-button:disabled{
+button:disabled,
+.btn:disabled {
   background-color: rgb(190,190,190);
   border-color: rgb(190,190,190);
   color: white;
@@ -115,7 +119,17 @@ label {
 
 input[type='radio']:checked+label {
   font-weight: bold;
-  color: rgb(28,117,190);
+  color: #58B0E3;
+}
+
+a {
+  color: #58B0E3;
+}
+
+a:hover,
+a:active
+a:focus {
+  color: #FAA61A;
 }
 
 .scanning-error {
@@ -128,10 +142,8 @@ input[type='radio']:checked+label {
   margin: 2px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
-  color: rgb(110,110,112);
-  border: 1px solid rgb(110,110,112);
-  border-radius: 3px;
+  background-color: #1f1f1f;
+  border: 1px solid #1f1f1f;
   width: 100%;
   padding: 5px;
 }
