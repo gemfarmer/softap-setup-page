@@ -28,7 +28,7 @@ AND/OR
 
 ### Getting Started
 You'll need:
-- virtualenv
+- virtualenv. If you don't have it installed, install with Homebrew (brew install virtualenv).
 - Python 2.7, pip.
 - A modern browser (I'm on chrome v53),
 - A Photon running firmware 0.5.0 or above.
@@ -37,9 +37,10 @@ You'll need:
 Then install everything on your machine with:
 
 1. `git clone https://github.com/mebrunet/softap-setup-page`
-2. `cd softap-setup-page`
-3. `virtualenv ENV`
-4. `pip install -r requirements.txt`
+1. `cd softap-setup-page`
+1. `virtualenv env`
+1. `source env/bin/activate` (deactivate frome environment instance by using `deactivate`)
+1. `pip install -r requirements.txt`
 
 ### Serving SoftAP pages externally (eg. from an amazon S3 bucket)
 The idea here is to:
