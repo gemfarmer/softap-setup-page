@@ -3,8 +3,9 @@
 <!--
 IMPORTANT Notes:
 1- File must NOT contain any double quotes (")
-2- Do not add any additional <style> or <script> tags
-3- Do to minification process, you must attach events to DOM elements in javascript and not in the HTML. i.e. do not use <Button onclick=myfunc>
+2- All text must be directly between elements, without line breaks (<p>Text</p>)
+3- Do not add any additional <style> or <script> tags
+4- Do to minification process, you must attach events to DOM elements in javascript and not in the HTML. i.e. do not use <Button onclick=myfunc>
 -->
 
 <html>
@@ -12,7 +13,7 @@ IMPORTANT Notes:
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>Sprowt Labs WiFi Scanner</title>
-  <link rel='stylesheet' type='text/css' href='fonts/geogrotesque.css'>
+  <!-- <link rel='stylesheet' type='text/css' href='fonts/geogrotesque.css'> -->
   <link rel='stylesheet' type='text/css' href='style.css'>
   <link rel='shortcut icon' href='connect.png'>
 </head>
@@ -21,9 +22,7 @@ IMPORTANT Notes:
   <h1>Sprowt Labs WiFi Scanner</h1>
 
   <div id='initial-div' style='display: none'>
-    <p>
-      We'll now try to locate your Acro and connect it to your local network.
-    </p>
+    <p>We'll now try to locate your Acro and connect it to your local network.</p>
     <button id='initial-button' type='button'>Locate Acro</button>
   </div>
 

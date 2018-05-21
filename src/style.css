@@ -22,7 +22,7 @@ body {
 body,
 button,
 .btn {
-  font-family: 'Geogrotesque Rg', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  font-family: 'Geogrotesque Rg', 'Lucida Sans Unicode', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Roboto', sans-serif;
 }
 
 div {
@@ -42,7 +42,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Geogrotesque SmBd', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  font-family: 'Geogrotesque SmBd', 'Lucida Sans Unicode', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Roboto', sans-serif;
 }
 
 ol {
