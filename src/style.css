@@ -1,26 +1,28 @@
-
 html {
   height: 100%;
   margin: auto;
-  background-color: white;
+  background-color: #1e1e1e;
 }
 
 body {
   box-sizing: border-box;
   min-height: 100%;
   padding: 20px;
-  background-color: rgb(26,171,224);
-	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  background-color: #373737;
 	font-weight: normal;
 	color: white;
 	margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
-  max-width: 400px;
+  max-width: 50vw;
   text-align: center;
-  border: 1px solid rgb(110,110,112);
-  border-radius: 4px;
+}
+
+body,
+button,
+.btn {
+  font-family: 'Geogrotesque Rg', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
 
 div {
@@ -28,9 +30,19 @@ div {
   margin-bottom: 25px;
 }
 
+
 h1 {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Geogrotesque SmBd', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
 
 ol {
@@ -40,24 +52,45 @@ li {
   padding: 10px;
 }
 
-button {
-  border-color: rgb(28,117,190);
-  background-color: rgb(28,117,190);
-  color: white;
-  border-radius: 5px;
-  height: 30px;
-  font-size: 15px;
-  font-weight: bold;
+button,
+.btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+
+  text-decoration: none;
+  color: #fff;
+  background: #58B0E3;
+
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
 }
 
-button.input-helper {
+button:hover,
+.btn:hover {
+  background-color: #FAA61A;
+  color: #373737;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+button.input-helper,
+.btn.input-helper {
   background-color: rgb(190,190,190);
   border-color: rgb(190,190,190);
   color: rgb(110,110,112);
   margin-left: 3px;
 }
 
-button:disabled{
+button:disabled,
+.btn:disabled {
   background-color: rgb(190,190,190);
   border-color: rgb(190,190,190);
   color: white;
@@ -98,7 +131,17 @@ label {
 
 input[type='radio']:checked+label {
   font-weight: bold;
-  color: rgb(28,117,190);
+  color: #58B0E3;
+}
+
+a {
+  color: #58B0E3;
+}
+
+a:hover,
+a:active
+a:focus {
+  color: #FAA61A;
 }
 
 .scanning-error {
@@ -111,10 +154,8 @@ input[type='radio']:checked+label {
   margin: 2px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
-  color: rgb(110,110,112);
-  border: 1px solid rgb(110,110,112);
-  border-radius: 3px;
+  background-color: #1f1f1f;
+  border: 1px solid #1f1f1f;
   width: 100%;
   padding: 5px;
 }

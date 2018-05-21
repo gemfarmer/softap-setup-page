@@ -58,3 +58,7 @@ target/
 
 # OSX
 .DS_Store
+
+# Environment
+env
+ENV

@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+argparse = "==1.2.1"
+csscompressor = "==0.9.3"
+ply = "==3.4"
+"pyasn1" = "==0.1.8"
+rsa = "==3.2"
+slimit = "==0.8.1"
+wsgiref = "==0.1.2"
+
+[dev-packages]
+
+[requires]
+python_version = "2.7"

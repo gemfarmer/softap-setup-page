@@ -1,4 +1,3 @@
-
 // Globals ---------------------------------------------------------------------
 
 var base_url = 'http://192.168.0.1/';
@@ -63,7 +62,8 @@ var device_id_callback = {
     var id = resp['id'];
     deviceID.value = id;
     document.getElementById('initial-div').style.display = 'none';
-    document.getElementById('device-id-div').style.display = 'block';
+    // document.getElementById('device-id-div').style.display = 'block';
+    document.getElementById('device-id-div').style.display = 'none';
     document.getElementById('scan-div').style.display = 'block';
   },
   error: function(error, resp){
@@ -169,6 +169,8 @@ var connect_callback = {
   success: function(resp){
     console.log('Attempting to connect to the cloud.');
     //Now connect to the WiFi
+    document.getElementById('return-div').style.display = 'block';
+
     connectButton.innerHTML = 'Attempting to connect...';
     window.alert('Your device should now start flashing green and attempt to connect to the cloud, this usually takes less than 20 seconds. Once connected, your device will slowly blink light blue. \n\n\nIf this process fails because you entered the wrong password, the device will flash green indefinitely. If that happens, simply reload this page and try again.');
   },
@@ -314,8 +316,25 @@ function getParameterByName(name, url) {
 }
 
 // Executed immediately on load -----------------------------------------------
+window.getParameterByName = getParameterByName;
 
 var claim_code = getParameterByName('claim_code'); // read the claim code from QS
+var return_url = getParameterByName('return_url'); // read the return url from QS
+var initialDiv = document.querySelector('#initial-div');
+var returnLink = document.createElement('a');
+
+console.log('yo');
+console.log(return_url);
+if (return_url) {
+  // att.value = return_url;
+  returnLink.setAttribute('href', return_url);
+  returnLink.innerHTML = 'Return to previous page';
+  document.querySelector('#return-button').setAttribute('href', return_url);
+  document.querySelector('body').insertBefore(returnLink, initialDiv);
+} else {
+  document.querySelector('#return-button').setAttribute('href', 'http://localhost:3000/devices');
+}
+
 
 // Attach events
 if (scanButton.addEventListener) {  // For all major browsers
@@ -334,7 +353,9 @@ if (scanButton.addEventListener) {  // For all major browsers
 
 // Set initial view depending on whether hosted externally or on device
 if (window.location.hostname === '192.168.0.1') {
-  document.getElementById('device-id-div').style.display = 'block';
+  // document.getElementById('device-id-div').style.display = 'block';
+  // Consider having additional page that users can go to see their devices
+  document.getElementById('initial-div').style.display = 'block';
 } else {
   document.getElementById('initial-div').style.display = 'block';
 }

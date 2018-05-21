@@ -11,41 +11,36 @@ IMPORTANT Notes:
 
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>SoftAP Setup</title>
+  <title>Sprowt Labs WiFi Scanner</title>
+  <link rel='stylesheet' type='text/css' href='fonts/geogrotesque.css'>
   <link rel='stylesheet' type='text/css' href='style.css'>
   <link rel='shortcut icon' href='connect.png'>
 </head>
 
 <body>
-  <h1>SoftAP Setup</h1>
-  
+  <h1>Sprowt Labs WiFi Scanner</h1>
+
   <div id='initial-div' style='display: none'>
-  <h2>Let's connect your device to the Wifi.</h2>
     <p>
-      <ol>
-        <li>Plug-in your device.</li>
-        <li>Make sure it is blinking blue. If it isn't, press and hold the 'S' button until it does.</li>
-        <li>Disconnect from your WiFi and Connect to the new WiFi hotspot it creates. It will appear as <i>Photon-XXXX</i> on your network list.</li>
-        <li>Press Next.</li>
-      </ol>
-    <p>
-    <button id='initial-button' type='button'>Next</button>
+      We'll now try to locate your Acro and connect it to your local network.
+    </p>
+    <button id='initial-button' type='button'>Locate Acro</button>
   </div>
-  
+
   <div id='device-id-div' style='display: none'>
     <h3>Device ID:</h3>
     <input type=text id='device-id' size='25' value='' disabled/>
     <button type='button' class='input-helper' id='copy-button'>Copy</button>
   </div>
-  
+
   <div id='scan-div' style='display: none'>
-    <h3>Scan for visible WiFi networks</h3>
+    <h3>Acro located! Scan for visible WiFi networks</h3>
     <button id='scan-button' type='button'>Scan</button>
   </div>
 
   <div id='networks-div'>
   </div>
-  
+
   <div id='connect-div' style='display: none'>
     <p>Don't see your network? Move your device closer to your router, then re-scan.</p>
     <form id='connect-form'>
@@ -53,6 +48,11 @@ IMPORTANT Notes:
       <button type='button' class='input-helper' id='show-button'>Show</button>
       <button type='submit' id='connect-button'>Connect</button>
     </form>
+  </div>
+
+  <div id='return-div' style='display: none'>
+    <p>Return to the app to complete device customer registration</p>
+    <a id='return-button' type='button' class='btn' href=''>Complete device registration</a>
   </div>
 
   <script src='rsa-utils/jsbn_1.js'></script>

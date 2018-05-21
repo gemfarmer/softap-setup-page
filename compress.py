@@ -78,7 +78,6 @@ if __name__ == "__main__":
       o.write("\nconst char " + variable + "[] = ")
       text = text.replace("\\n", "\\\\n") # Need to "double escape" escaped
       text = text.replace("\\'", "\\\\'") # newlines and single quotes.
-
       o.write('"'+ text +'";\n')
 
     with open(os.path.join(output_dir, "intructions.txt"), open_type) as o:
@@ -92,3 +91,4 @@ if __name__ == "__main__":
       o.write(template.format(filename, contentType[extension], variable))
 
     open_type = "a" # Append future
+print 'success!'
