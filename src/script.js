@@ -172,7 +172,8 @@ var connect_callback = {
     document.getElementById('return-div').style.display = 'block';
 
     connectButton.innerHTML = 'Attempting to connect...';
-    window.alert('Your device should now start flashing green and attempt to connect to the cloud, this usually takes less than 20 seconds. Once connected, your device will slowly blink light blue. \n\n\nIf this process fails because you entered the wrong password, the device will flash green indefinitely. If that happens, simply reload this page and try again.');
+    window.alert('Your device is attempting to connect to the cloud, this usually takes less than 20 seconds. Once connected, your device will indicate that it is connected. \n\n\nIf this does not happen, restart the device and refresh this page to try again.');
+    hidePanels();
   },
   error: function(error, resp){
     console.log('Connect error: ' + error);
@@ -195,6 +196,12 @@ var enableButtons = function (){
   initialButton.disabled = false;
   connectButton.disabled = false;
   scanButton.disabled = false;
+};
+
+var hidePanels = function() {
+  document.getElementById('scan-div').style.display = 'none';
+  document.getElementById('connect-div').style.display = 'none';
+  document.getElementById('networks-div').style.display = 'none';
 };
 
 var add_wifi_option = function(parent, ssid){
@@ -343,6 +350,7 @@ if (scanButton.addEventListener) {  // For all major browsers
     showButton.addEventListener('click', toggleShow);
     scanButton.addEventListener('click', scan);
     connectForm.addEventListener('submit', configure);
+
 } else if (scanButton.attachEvent) { // For IE 8 and earlier
     initialButton.attachEvent('onclick', getDeviceInfo);
     copyButton.attachEvent('onclick', copy);
